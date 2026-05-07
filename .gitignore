@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Local outputs the notebook may produce
+*.png
+*.jpg
+*.pdf
+results/
+
+# Big data — see README for download instructions
+data/*.lv2a
+data/*.fits
