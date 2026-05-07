@@ -23,5 +23,6 @@ Thumbs.db
 results/
 
 # Big data — see README for download instructions
-data/*.lv2a
-data/*.fits
+data/**/*.lv2a
+data/**/*.fits
+data/**/*.fits.gz

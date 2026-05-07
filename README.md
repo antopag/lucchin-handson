@@ -30,15 +30,19 @@ inference on synthetic data) without them. Section 1 needs the FITS files.
 
 ## Naming convention for the FITS files
 
-The notebook expects files named like:
+The notebook expects this layout:
 
 ```
-MA_012_gamma_NNNNNNNN-NNNNNNNN_R_zd20-20_az000-000_train.lv2a
-MA_012_proton_NNNNNNNN-NNNNNNNN_R_zd20-20_az000-000_train.lv2a
+data/
+├── gamma/
+│   ├── train/   MA_012_gamma_*_train.lv2a
+│   └── test/    MA_012_gamma_*.lv2a.fits.gz
+└── proton/
+    ├── train/   MA_012_proton_*_train.lv2a
+    └── test/    MA_012_proton_*.lv2a.fits.gz
 ```
 
-Drop them into `data/` (or wherever `DATA_DIR` points to) and the loader
-will pick them up automatically.
+The loader picks them up automatically from `DATA_DIR`.
 
 ## Troubleshooting
 
@@ -55,6 +59,7 @@ For everything else: ask in class, or come find me after.
 ## Data
 
 The ASTRI Mini-Array MC FITS files are included in the `data/` folder
-of this repo (~349 MB total).
+of this repo (~381 MB total): 5 gamma + 3 proton training files, plus
+2 gamma + 2 proton independent test files.
 
 — Antonio
