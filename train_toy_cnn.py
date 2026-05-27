@@ -85,7 +85,7 @@ def main():
         "n_params": n_params,
         "training_data": "synthetic Cherenkov-like images (synth_camera.py)",
         "val_accuracy": val_acc,
-    }, "/home/claude/lecture/toy_cnn.pt")
+    }, "toy_cnn.pt")
 
     print(f"\nSaved trained model -> toy_cnn.pt  (val_acc={val_acc:.4f})")
 

@@ -15,6 +15,7 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+.claude/
 
 # Local outputs the notebook may produce
 *.png

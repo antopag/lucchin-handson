@@ -122,17 +122,17 @@ def generate_dataset(n_per_class: int = 5000, seed: int = 42):
     -------
     X : np.ndarray of shape (2 * n_per_class, 1, 56, 56), float32
     y : np.ndarray of shape (2 * n_per_class,), int64
-        0 = γ, 1 = proton
+        1 = γ, 0 = proton
     """
     rng = np.random.default_rng(seed)
     X = np.empty((2 * n_per_class, 1, IMG_SIZE, IMG_SIZE), dtype=np.float32)
     y = np.empty(2 * n_per_class, dtype=np.int64)
     for i in range(n_per_class):
         X[i, 0] = synthesize_gamma(rng)
-        y[i] = 0
+        y[i] = 1
     for i in range(n_per_class):
         X[n_per_class + i, 0] = synthesize_proton(rng)
-        y[n_per_class + i] = 1
+        y[n_per_class + i] = 0
     # Shuffle so γ and proton are interleaved
     perm = rng.permutation(len(y))
     return X[perm], y[perm]
@@ -142,7 +142,7 @@ if __name__ == "__main__":
     X, y = generate_dataset(n_per_class=100)
     print(f"X shape: {X.shape}  dtype={X.dtype}")
     print(f"y shape: {y.shape}  dtype={y.dtype}")
-    print(f"γ: {(y == 0).sum()}  proton: {(y == 1).sum()}")
+    print(f"γ: {(y == 1).sum()}  proton: {(y == 0).sum()}")
     print(f"intensity range: [{X.min():.3f}, {X.max():.3f}]")
-    print(f"mean intensity (γ):     {X[y == 0].mean():.3f}")
-    print(f"mean intensity (proton): {X[y == 1].mean():.3f}")
+    print(f"mean intensity (γ):     {X[y == 1].mean():.3f}")
+    print(f"mean intensity (proton): {X[y == 0].mean():.3f}")
